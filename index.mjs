@@ -1,3 +1,3 @@
-import startApp from './app/app.mjs';
+import startApp from './app.mjs';
 
 document.addEventListener('DOMContentLoaded', startApp); 
