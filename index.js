@@ -150,4 +150,7 @@ function changeAutoComplete(e) {
 function selectItem({ target }) {
     // Set the input value to the suggestion
     phoneInp.value = target.innerText
+
+    // Clear all suggestions
+    suggestions.innerHTML = ""
 }
