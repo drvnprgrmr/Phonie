@@ -1,17 +1,3 @@
-function startApp() {
-    // Your entire app should not necessarily be coded inside this
-    // single function (though there's no penalty for that),
-    // so create and use/call additional functions from here
-
-    // pls remove the below and make some magic in here!
-    console.log("make magic in here!");
-
-    const header = document.querySelector("h2");
-    if (header) {
-        header.textContent = "make some magic here!!";
-    }
-}
-
 let carrierPrefixes = {
     "0701": "airtel",
     // "07020": "smile",
@@ -131,21 +117,10 @@ function handleLogo(e) {
 
 }
 
-// Error Handlers
-
-function processInput(e) {
-    // TODO: Check value is a number
-    // TODO: Check max length isn't exceeded
-    // TODO: Check if uses +234
-    // TODO: Check for spaces
-}
-
 // Autocomplete feature
 let suggestions = document.getElementById("suggestions");
-let curIndex = -1
 
 phoneInp.addEventListener("input", changeAutoComplete);
-phoneInp.addEventListener("keydown", navigateSuggestions)
 suggestions.addEventListener("click", selectItem);
 
 function changeAutoComplete(e) {
@@ -154,7 +129,7 @@ function changeAutoComplete(e) {
     
     // Grab the value of input
     const el = e.currentTarget;
-    const curVal = el.value
+    const curVal = el.value.replaceAll(" ", "")
 
     // compare with list of values and filter
     const filteredList = suggestionList.filter((x) => { return x.startsWith(curVal)})
@@ -168,25 +143,11 @@ function changeAutoComplete(e) {
         // Add new 'li' to suggestions
         suggestions.appendChild(li)
 
-
-
     })
-    console.log("called", suggestions)
 }
 
-function navigateSuggestions(e) {
-    console.log(e)
-    if (e.key === "ArrowDown") {
-        suggestions.children[0]
-    }
-
-}
 
 function selectItem({ target }) {
     // Set the input value to the suggestion
     phoneInp.value = target.innerText
 }
-
-// ======= DO NOT EDIT ============== //
-export default startApp;
-// ======= EEND DO NOT EDIT ========= //
